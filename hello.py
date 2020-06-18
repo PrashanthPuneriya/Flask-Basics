@@ -1,4 +1,4 @@
-from flask import Flask, url_for
+from flask import Flask, url_for, render_template
 from markupsafe import escape
 
 app = Flask(__name__)
@@ -9,9 +9,10 @@ def index():
     return "Index Page"
 
 @app.route('/home/')
-def hello_world():
+@app.route('/home/<string:username>/')
+def hello_world(username=None):
     # *** Can access the URL without trailing slash ***
-    return "Hello World"
+    return render_template('hello.html', username=username)
 
 @app.route('/profile/<string:username>')
 def show_user_profile(username):
@@ -25,6 +26,8 @@ def show_single_post(post_id):
 @app.route('/path/<path:subpath>')
 def show_subpath(subpath):
     return "Subpath %s" % escape(subpath)
+
+url_for('static', filename='base.css')
 
 # TESTING
 with app.test_request_context():

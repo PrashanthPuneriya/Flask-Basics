@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if username is not none %}
+        <p>Hello {{username}}</p>
+    {% else %}
+        <p>Hello ANONYMOUS user</p>
+    {% endif %}
+
+{% endblock content %}
