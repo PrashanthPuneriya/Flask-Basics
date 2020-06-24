@@ -1,12 +1,6 @@
-from flask import Blueprint, render_template
+from . import accounts  # __init__.py
 
-
-accounts = Blueprint(
-    'accounts',
-    __name__,
-    template_folder='templates',
-    url_prefix='/profile'
-)
+from flask import render_template
 
 
 @accounts.route('/<string:username>')
