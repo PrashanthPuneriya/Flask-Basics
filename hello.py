@@ -1,8 +1,8 @@
 from flask import Flask, redirect, url_for, render_template
 # from markupsafe import escape
 
-
-app = Flask(__name__)
+# app = Flask(__name__)
+app = Flask(__name__, static_folder="static", template_folder="templates")
 
 @app.route('/')
 @app.route('/index')
