@@ -1,8 +1,7 @@
 from flask import Flask, redirect, url_for
 # from markupsafe import escape
 
-from .accounts.routes import accounts
-
+from .accounts.urls import accounts
 
 def create_app(test_config=None):
     # create and configure the app
