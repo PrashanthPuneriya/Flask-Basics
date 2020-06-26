@@ -12,6 +12,5 @@ def create_app(config_file='settings.py'):
     from .accounts.urls import accounts
     app.register_blueprint(example)
     app.register_blueprint(accounts)
-    
 
     return app
