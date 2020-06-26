@@ -8,7 +8,7 @@ def create_app(config_file='settings.py'):
 
     app.config.from_pyfile(config_file)
 
-    from .import db
+    from . import db
     db.init_app(app)
 
     from .example.routes import example

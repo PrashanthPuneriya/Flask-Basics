@@ -18,7 +18,7 @@ def get_db():
     return g.db
 
 
-def close_db():
+def close_db(err=None):
     conn = g.pop('db', None)
 
     if conn is not None:
