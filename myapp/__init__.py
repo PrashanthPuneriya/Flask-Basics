@@ -8,6 +8,9 @@ def create_app(config_file='settings.py'):
 
     app.config.from_pyfile(config_file)
 
+    from .import db
+    db.init_app(app)
+
     from .example.routes import example
     from .accounts.urls import accounts
     app.register_blueprint(example)
