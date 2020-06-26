@@ -1,7 +1,6 @@
 from flask import Flask, redirect, url_for
 # from markupsafe import escape
 
-from .accounts.urls import accounts
 
 def create_app(test_config=None):
     # create and configure the app
@@ -9,6 +8,7 @@ def create_app(test_config=None):
     # app = Flask(__name__)
     app = Flask(__name__, static_folder="static", template_folder="templates")
 
+    from .accounts.urls import accounts
     app.register_blueprint(accounts)
 
     @app.route('/')
