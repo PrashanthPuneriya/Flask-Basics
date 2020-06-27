@@ -9,6 +9,7 @@ def create_app(config_file='settings.py'):
     app.config.from_pyfile(config_file)
 
     from . import db
+    # Pass the flask app instance as an argument to the init_app() present in the db.py file
     db.init_app(app)
 
     from .example.routes import example
