@@ -48,7 +48,7 @@ def init_db():
 
 """
  - Adds init-db command to the shell
- - Registers the init_db_command and close_db functions with the app instance
+ - Registers the init_db_command and close_db methods with the app instance
 """
 
 
@@ -56,10 +56,16 @@ def init_db():
 @click.command('init-db')
 @with_appcontext
 def init_db_command():
-    # init_db() doesn't knows which app(since, flask can have multiple apps) is initializing db
-    # Hence, we need to push the app context to it.
+    """
+    @with_appcontext is required because:-
+        We never told Flask what application(since, flask can have multiple apps) it should deal with
+        when running init_db() method.
+
+        Hence, we need to push the app context to it.
+    """
+
     init_db()
-    click.echo('Initialized the database.')
+    click.echo('Initialized the database!!!')
 
 
 def init_app(app):
