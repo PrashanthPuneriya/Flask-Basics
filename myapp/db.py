@@ -56,6 +56,8 @@ def init_db():
 @click.command('init-db')
 @with_appcontext
 def init_db_command():
+    # init_db() doesn't knows which app(since, flask can have multiple apps) is initializing db
+    # Hence, we need to push the app context to it.
     init_db()
     click.echo('Initialized the database.')
 
