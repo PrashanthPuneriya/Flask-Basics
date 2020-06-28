@@ -17,4 +17,6 @@ def create_app(config_file='settings.py'):
     app.register_blueprint(example)
     app.register_blueprint(accounts)
 
+    app.add_url_rule('/', endpoint='index')
+
     return app
